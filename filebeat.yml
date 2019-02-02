@@ -6,8 +6,13 @@ filebeat.inputs:
   - add_docker_metadata: ~
   - drop_event:
       when:
-        regexp:
-          docker.container.name: 'filebeat'
+        or:
+          - regexp:
+              docker.container.name: 'filebeat'
+          - regexp:
+              docker.container.name: 'kafka'
+          - regexp:
+              docker.container.name: 'zookeeper'
 
 output.kafka:
   hosts: ["kafka:9092"]
