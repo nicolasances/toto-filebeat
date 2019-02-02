@@ -1,0 +1,20 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/lib/docker/containers/*/*.log
+  processors:
+  - add_docker_metadata: ~
+  - drop_event:
+      when:
+        regexp:
+          docker.container.name: 'filebeat'
+
+output.kafka:
+  hosts: ["kafka:9092"]
+  topic: 'totoLogs'
+  partition.round_robin:
+    reachable_only: false
+
+  required_acks: 1
+  compression: gzip
+  max_message_bytes: 100000000
