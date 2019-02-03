@@ -13,6 +13,8 @@ filebeat.inputs:
               docker.container.name: 'kafka'
           - regexp:
               docker.container.name: 'zookeeper'
+  - drop_fields:
+      fields: ["host", "source", "offset", "log", "prospector", "input", "beat"]
 
 output.kafka:
   hosts: ["kafka:9092"]
