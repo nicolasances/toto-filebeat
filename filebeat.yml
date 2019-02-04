@@ -13,6 +13,8 @@ filebeat.inputs:
               docker.container.name: 'kafka'
           - regexp:
               docker.container.name: 'zookeeper'
+          - regexp:
+              docker.container.name: 'toto-nodereact-log-cidfilter'
   - drop_fields:
       fields: ["host", "source", "offset", "log", "prospector", "input", "beat"]
 
