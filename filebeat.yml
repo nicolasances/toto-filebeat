@@ -13,6 +13,12 @@ filebeat.inputs:
               docker.container.name: 'kafka'
           - regexp:
               docker.container.name: 'zookeeper'
+          - regexp:
+              docker.container.name: 'gateway'
+          - regexp:
+              docker.container.name: 'redis'
+          - regexp:
+              docker.container.name: 'mongo'
   - drop_fields:
       fields: ["host", "source", "offset", "log", "prospector", "input", "beat"]
 
