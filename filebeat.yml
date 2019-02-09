@@ -22,6 +22,8 @@ filebeat.inputs:
           - regexp:
               docker.container.name: 'toto-nginx'
           - regexp:
+              docker.container.name: 'toto-environment-setup'
+          - regexp:
               docker.container.name: 'toto-web-.*'
   - drop_fields:
       fields: ["host", "source", "offset", "log", "prospector", "input", "beat"]
