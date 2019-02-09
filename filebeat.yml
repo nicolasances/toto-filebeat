@@ -19,6 +19,8 @@ filebeat.inputs:
               docker.container.name: 'redis'
           - regexp:
               docker.container.name: 'mongo'
+          - regexp:
+              docker.container.name: 'toto-nginx'
   - drop_fields:
       fields: ["host", "source", "offset", "log", "prospector", "input", "beat"]
 
