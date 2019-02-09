@@ -10,7 +10,7 @@ This is made to be built as part of a Toto environment setup.
 ## How to run it
 To run this in a Toto environment, `docker run` it as follows:
 ```
-docker run -d --name filebeat --network totonet -u root -v /home/nicolas/beats/filebeat.yml:/usr/share/filebeat/filebeat.yml -v /var/lib/docker/containers:/var/lib/docker/containers -v /var/run/docker.sock:/var/run/docker.sock  toto-filebeat
+docker run -d --name filebeat --network totonet -u root -v /var/lib/docker/containers:/var/lib/docker/containers -v /var/run/docker.sock:/var/run/docker.sock  toto-filebeat
 ```
 
 ## Notes on Filebeat - How to set it up manually
